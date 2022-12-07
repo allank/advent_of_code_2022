@@ -21,7 +21,9 @@ else
 	    echo "TODO: open tumx with split panes nvim | aoc test day..."
 	    ;;
 	"new")
-	    echo "TODO: create new day based on template :)"
+	    cp src/_day_nn.py "src/day_$2.py"
+	    sed "s/{day}/$2/g" tests/_test_nn.py > "tests/test_$2.py" 
+	    touch "data/input_$2.txt"
 	    ;;
 	"test")
 	    python -m unittest "tests.test_$2"
